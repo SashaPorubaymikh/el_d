@@ -1,0 +1,20 @@
+.main_section {
+    display: flex;
+    padding: 10px;
+    height: calc(100% - 20px);
+}
+
+.sidebar {
+    /* background: lightgray; */
+    width: 170px;
+}
+
+.content {
+    /* background: lightgray; */
+    margin-left: 10px;
+    flex: 1;
+}
+
+p {
+    margin-bottom: 8px;
+}

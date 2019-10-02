@@ -1,0 +1,73 @@
+.main_section {
+    display: flex;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+.left {
+    width: 170px;
+}
+
+.diary {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.lesson {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson_name {
+    font-size: 18px;
+    align-self: center;
+}
+
+.lesson_classroom {
+    font-size: 17px;
+    align-self: flex-end;
+    margin-right: 5px;
+}
+
+.weekday_name {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.table {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+    height: 60px;
+    width: 90%;
+}
+
+.number {
+    font-size: 30px;
+}
+
+.add_lesson_link {
+    align-self: center;
+}
+
+.edit_lesson_link {
+    color: black;
+    text-decoration: none;
+    margin: 2px;
+    font-size: 30px;
+}
+
+.homeworks {
+    display: flex;
+    justify-content: space-between;
+}

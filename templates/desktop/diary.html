@@ -1,0 +1,109 @@
+<head>
+  {% load static %}
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'desktop/diary.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <title>EL_D</title>
+
+  <style type="text/css">
+    .table {
+      grid-template-rows: repeat({{number_of_lessons}}, 1fr);
+      grid-template-columns: 30px repeat({{number_of_days}}, 5fr);
+    }
+  </style>
+
+</head>
+
+<section class="main_section">
+  <div class="left">
+    {% include "desktop/left.html" %}
+  </div>
+  <div class="diary">
+    <div class="navbar">
+      <div class="left_navbar">
+        <a href="{% url 'diary:diary' week=previous_week_number %}" class="navbar_link" title="Previous week">
+          <i class="material-icons">
+            arrow_back
+          </i>
+        </a> 
+        <a href="{% url 'diary:diary' week=next_week_number %}" class="navbar_link" title="Next week">
+          <i class="material-icons">
+            arrow_forward
+          </i>
+        </a>
+      </div>
+      <div class="right_navbar">
+        <a href="{% url 'diary:add_lesson' %}" class="navbar_link" title="Add new lesson">
+          <i class="material-icons">
+            add
+          </i>
+        </a>
+        <p class="page_name">Diary</p>
+      </div>
+    </div>
+
+    <main class="main_content">
+      <div class="table">
+        <div class="lesson_number"></div>
+        {% for number in count_of_lessons %}
+        <div class="lesson_number">
+          <p class="number">{{ number }}</p>
+        </div>
+        {% endfor %}
+        {% for day in days %}
+        {% if day.lessons %}
+        <div class="weekday_name">
+          <p>{{ day.name }}</p>
+          <p>{{ day.date }}</p>
+        </div>
+        {% for lesson in day.lessons %}
+        <div class="lesson">
+          {% if lesson.none == False %}
+          <p class="lesson_name">{{ lesson.name }}</p>
+          <p class="lesson_classroom">{{ lesson.classroom }}</p>
+          <div class="homeworks">
+              {% if lesson.details != 0 %}
+                <a href="{% url 'diary:lesson_details' id=lesson.details %}" class="lesson_homework">{{ lesson.homework }}</a>
+                {% if lesson.homework_is_done %}
+                    <p>
+                        <i class="material-icons">
+                            done
+                        </i>
+                    </p>
+                    {% else %}
+                    <p>
+                        <a href="{% url 'diary:mark_as_done' id=lesson.details %}" class="edit_lesson_link" title="Mark as done">
+                            <i class="material-icons">
+                                done_outline
+                            </i>
+                        </a>
+                    </p>
+                    {% endif %}
+                {% endif %}
+          </div>
+          <div class="edit_lesson_links">
+            <a href="{% url 'diary:delete_lesson' lesson.delete_id %}" title="Delete this lesson" class="edit_lesson_link">
+              <i class="material-icons">
+                clear
+              </i>
+            </a>
+            <a href="{% url 'diary:edit_homework' week=lesson.edit_homework.week id=lesson.edit_homework.id %}" title="Edit homework" class="edit_lesson_link">
+              <i class="material-icons">
+                create
+              </i>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </main>
+
+  </div>
+</section>

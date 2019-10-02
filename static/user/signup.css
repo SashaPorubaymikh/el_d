@@ -1,0 +1,26 @@
+.main_section {
+    padding: 10px;
+    height: calc(100% - 20px);
+}
+
+.sidebar {
+    /* background: lightgray; */
+    width: 170px;
+}
+
+.content {
+    margin-left: 10px;
+    flex: 1;
+}
+
+p {
+    margin-bottom: 8px;
+}
+
+.errorlist {
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 8px;
+}

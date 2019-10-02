@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from desktop.diary_view import diary_page
+from desktop.main_page_view import main_page
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('diary/', include('desktop.urls', namespace='diary')),
+    path('', main_page, name="main_page"),
     path('user/', include('user.urls', namespace='user')),
 ]
