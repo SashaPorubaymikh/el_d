@@ -1,0 +1,18 @@
+USER APP
+========
+
+File forms.py
+-------------
+Contains login form and registration form:
+
+File models.py
+--------------
+In the file is the GlobalUser model, which is redefinition of Django's Auth user model.
+
+File validators.py
+----------------------
+Contains a validator that checks if this username is busy.
+
+File views.py
+-----------------
+Contains two functions. The first function displays Sign in page and the second logs out the user.

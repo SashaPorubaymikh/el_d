@@ -1,0 +1,26 @@
+DIARY APP
+=========
+
+File models.py
+--------------
+Contains Lesson model:
+
+.. code-block:: python
+
+    class Lesson(models.Model):
+        name = models.CharField(max_length=24, null=True, blank=True)
+        classroom = models.CharField(max_length=32, blank=True, null=True)
+        day = models.IntegerField(choices=DAY_CHOICES, null=True, blank=True)
+        user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+        number = models.IntegerField(null=True, blank=True)
+
+and Homework model:
+
+.. code-block:: python
+
+    class HomeWork(models.Model):
+        homework = models.CharField(max_length=256, blank=True, null=True)
+        date = models.DateField(blank=True, null=True) # Date of the lesson for which this homework is set
+        lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+        is_done = models.BooleanField(default=False) # True, if user marks the homework as done
+

@@ -1,0 +1,55 @@
+DESKTOP APP
+===========
+
+File main_page_view.py
+----------------------
+Contains a function that displays main page of the lesson (It's empty).
+
+File diary_view.py
+------------------
+Contains a function that displays a diary page.
+function diary_page takes request and number of week.
+if week = 0, function retruns current week,
+if week = 1, function returns the next week,
+if week = -1, function returns the previous week.
+
+File edit_lesson_view.py
+------------------------
+Contains functions to 
+ * Create lesson;
+    The AddLesson form from the forms.py file will be displayed;
+ * Delete lesson;
+    The function accepts the ID of lesson and deletes it;
+ * Add homewrok;
+    The function accepts the lesson ID and week number relative to the current and displays The AddHomework form;
+ * Mark homewrok as done.
+    The fuction accepts the ID of homework and deletes it;
+
+File lesson_details_view.py
+---------------------------
+Contains a function that displays information about the lesson, such as: 
+ #. Lesson name, 
+ #. Classroom, 
+ #. Lesson number ,
+ #. Homework text for this lesson
+
+File views_logic.py
+-------------------
+Contains helper functions for:
+ * Getting the dates of Monday and Saturday of the week
+    This function takes the date of the day and calculates the dates of Monday and Saturday of the week whose day was given;
+ * Getting the maximum number of lessons per week,
+ * Creating a list of lessons
+    Takes the week number relative to the current one and returns the lesson schedule and homework for this week.
+
+File forms.py
+-------------
+Contains form classes for creating a lesson and changing homework.
+
+File forms_logic.py
+-------------------
+Contains a function that returns a list of tuples that contain the name of the weekday and its number
+
+File urls.py
+------------
+Contains app name and url patterns

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>DESKTOP APP &#8212; EL_D 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="desktop-app">
+<h1>DESKTOP APP<a class="headerlink" href="#desktop-app" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="file-main-page-view-py">
+<h2>File main_page_view.py<a class="headerlink" href="#file-main-page-view-py" title="Permalink to this headline">¶</a></h2>
+<p>Contains a function that displays main page of the lesson (It’s empty).</p>
+</div>
+<div class="section" id="file-diary-view-py">
+<h2>File diary_view.py<a class="headerlink" href="#file-diary-view-py" title="Permalink to this headline">¶</a></h2>
+<p>Contains a function that displays a diary page.
+function diary_page takes request and number of week.
+if week = 0, function retruns current week,
+if week = 1, function returns the next week,
+if week = -1, function returns the previous week.</p>
+</div>
+<div class="section" id="file-edit-lesson-view-py">
+<h2>File edit_lesson_view.py<a class="headerlink" href="#file-edit-lesson-view-py" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Contains functions to</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Create lesson;</dt><dd><p>The AddLesson form from the forms.py file will be displayed;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Delete lesson;</dt><dd><p>The function accepts the ID of lesson and deletes it;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Add homewrok;</dt><dd><p>The function accepts the lesson ID and week number relative to the current and displays The AddHomework form;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Mark homewrok as done.</dt><dd><p>The fuction accepts the ID of homework and deletes it;</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="file-lesson-details-view-py">
+<h2>File lesson_details_view.py<a class="headerlink" href="#file-lesson-details-view-py" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Contains a function that displays information about the lesson, such as:</dt><dd><ol class="arabic simple">
+<li><p>Lesson name,</p></li>
+<li><p>Classroom,</p></li>
+<li><p>Lesson number ,</p></li>
+<li><p>Homework text for this lesson</p></li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="file-views-logic-py">
+<h2>File views_logic.py<a class="headerlink" href="#file-views-logic-py" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Contains helper functions for:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Getting the dates of Monday and Saturday of the week</dt><dd><p>This function takes the date of the day and calculates the dates of Monday and Saturday of the week whose day was given;</p>
+</dd>
+</dl>
+</li>
+<li><p>Getting the maximum number of lessons per week,</p></li>
+<li><dl class="simple">
+<dt>Creating a list of lessons</dt><dd><p>Takes the week number relative to the current one and returns the lesson schedule and homework for this week.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="file-forms-py">
+<h2>File forms.py<a class="headerlink" href="#file-forms-py" title="Permalink to this headline">¶</a></h2>
+<p>Contains form classes for creating a lesson and changing homework.</p>
+</div>
+<div class="section" id="file-forms-logic-py">
+<h2>File forms_logic.py<a class="headerlink" href="#file-forms-logic-py" title="Permalink to this headline">¶</a></h2>
+<p>Contains a function that returns a list of tuples that contain the name of the weekday and its number</p>
+</div>
+<div class="section" id="file-urls-py">
+<h2>File urls.py<a class="headerlink" href="#file-urls-py" title="Permalink to this headline">¶</a></h2>
+<p>Contains app name and url patterns</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">EL_D</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SashaPorubaymikh&repo=el_d&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, LLEMOON.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/desktop.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
