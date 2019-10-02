@@ -61,8 +61,8 @@
           <p>{{ day.date }}</p>
         </div>
         {% for lesson in day.lessons %}
-        {% if lesson.none == False %}
-          <div class="lesson">
+        <div class="lesson">
+          {% if lesson.none == False %}
           <p class="lesson_name">{{ lesson.name }}</p>
           <p class="lesson_classroom">{{ lesson.classroom }}</p>
           <div class="homeworks">
@@ -97,10 +97,8 @@
               </i>
             </a>
           </div>
-          </div>
-          {% else %}
-          <div class="lesson_2"></div>
           {% endif %}
+        </div>
         {% endfor %}
         {% endif %}
         {% endfor %}
