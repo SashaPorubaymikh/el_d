@@ -1,0 +1,27 @@
+.main_section {
+    display: flex;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+.left {
+    width: 170px;
+}
+
+.details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.parameter {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.argument {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    width: 50%;
+}

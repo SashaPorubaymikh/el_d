@@ -1,0 +1,22 @@
+p {
+    margin-bottom: 8px;
+}
+
+form {
+    margin-left: 10px;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+.error_container {
+    display: flex;
+}
+
+.error {
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 15px;
+}

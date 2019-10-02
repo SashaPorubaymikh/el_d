@@ -1,0 +1,26 @@
+<head>
+    {% load static %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
+
+	<title>EL_D</title>
+</head>
+
+<section class="main_section">
+    <div class="content">
+        <div class="navbar">
+			<div class="left_navbar">
+				<a href="{% url 'main_page' %}" class="navbar_link">Back to main page</a>
+			</div>
+			<div class="right_navbar">
+				<p class="page_name">Edit homework</p>
+			</div>
+		</div>
+        <form action="{% url 'diary:edit_homework' week=week id=id %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="edit_homework" , value="Save">
+        </form>
+    </div>
+</section>

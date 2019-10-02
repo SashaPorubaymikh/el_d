@@ -1,0 +1,34 @@
+<head>
+    <title>EL_D</title>
+
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'desktop/add_lesson.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/error.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<section class="main_section">
+	<div class="content">
+		<div class="navbar">
+            <a href="{% url 'diary:diary' week=0 %}" class="navbar_link" title="Back to diary">
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </a>
+            <h1 class="page_name">Add lesson</h1>
+        </div>
+		<form action="/diary/add_lesson/" method="POST">
+            {% csrf_token %}
+            {% if addlesson_error %}
+            <div class="error_container">
+                <p class="error">{{ addlesson_error}}</p>
+            </div>
+            {% endif %}
+			{{ form.as_p }}
+			<input type="submit" name="add_lesson", value="Add lesson">
+		</form>
+	</div>
+</section>

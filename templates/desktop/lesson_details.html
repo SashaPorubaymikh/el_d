@@ -1,0 +1,34 @@
+<head>
+    <title>EL_D</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'desktop/lesson_details.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<section class="main_section">
+    <div class="left">
+        {% include "desktop/left.html" %}
+    </div>
+    <div class="details">
+        <div class="navbar">
+            <a href="{% url 'diary:diary' week=0 %}" class="navbar_link" title="Back to diary">
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </a>
+            <h1 class="page_name">Lesson details</h1>
+        </div>
+        <h3 class="parameter">Lesson name:</h3>
+        <p class="argument">{{name}}</p>
+        <h3 class="parameter">Classroom:</h3>
+        <p class="argument">{{classroom}}</p>
+        <h3 class="parameter">Lesson number:</h3>
+        <p class="argument">{{number}}</p>
+        <h3 class="parameter">Homework:</h3>
+        <p class="argument">{{homework}}</p>
+    </div>
+</section>

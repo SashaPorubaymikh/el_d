@@ -1,5 +1,28 @@
+<head>
+    {% load static %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/error.css' %}">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<title>EL_D</title>
+</head>
+
 <section class="main_section">
     <div class="main_content">
+        <div class="navbar">
+            <a href="{% url 'main_page' %}" class="navbar_link" title="Back to main page">
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </a>
+            <div class="right_navbar">
+                <p class="page_name">Signup</p>
+            </div>
+        </div>
         <form action="/user/signup/" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
