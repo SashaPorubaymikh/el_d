@@ -8,6 +8,17 @@ from .lesson_details_view import lesson_details
 
 app_name = 'diary'
 
+class NegativeIntConverter:
+    regex = '-?\d+'
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return '%d' % value
+
+register_converter(NegativeIntConverter, "negativeInt")
+
 urlpatterns = [
-  path('diary/', diary_page, name='diary'),
+  path('week/<negativeInt:week>/', diary_page, name='diary'),
 ]
