@@ -1,0 +1,14 @@
+<section class="main_section">
+	<div class="content">
+		<form action="/user/login/" method="POST">
+			{% csrf_token %}
+			{% if login_error %}
+			<div class="error_container">
+				<p class="error">Username or password are not valid</p>
+			</div>
+			{% endif %}
+			{{ form.as_p }}
+			<input type="submit" name="login" , value="Sign in">
+		</form>
+	</div>
+</section>

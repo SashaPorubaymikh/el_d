@@ -1,0 +1,9 @@
+<section class="main_section">
+    <div class="main_content">
+        <form action="/user/signup/" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" , name="signup" value="Sign up">
+        </form>
+    </div>
+</section>
