@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +124,8 @@ STATIC_URL = '/static/' # the path in url
 #     os.path.join(BASE_DIR, "static"),
 # ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+AUTH_USER_MODEL = "user.GlobalUser"
+
+LOGIN_URL = '/user/login/'
 
