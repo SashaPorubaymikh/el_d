@@ -19,7 +19,6 @@ from django.urls import path, include
 from desktop.diary_view import diary_page
 from desktop.main_page_view import main_page
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('diary/', include('desktop.urls', namespace='diary')),
