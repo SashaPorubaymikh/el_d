@@ -1,6 +1,6 @@
 .main_section {
     display: flex;
-    height: calc(100% - 20px);
+    height: 100%;
 }
 
 .main_sidebar {
