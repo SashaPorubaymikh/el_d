@@ -18,7 +18,7 @@ def login(request):
             user = authenticate(request, username=username, password=password)
             if user != None:
                 django_login(request, user)
-                return HttpResponse(200)
+                return HttpResponseRedirect(reverse('diary:diary', args=[0]))
             context['login_error'] = True
             return render(request, 'user/login.html', context=context)
     
@@ -28,7 +28,7 @@ def login(request):
 
 def logout(request):
     django_logout(request)
-    return HttpResponse(200)
+    return HttpResponseRedirect(reverse('main_page'))
 
 def signup(request):
     if request.method == "POST":
@@ -40,7 +40,7 @@ def signup(request):
             phone_number = form.cleaned_data['phone_number']
             age = form.cleaned_data['age']
             user = GlobalUser.objects.create_user(username=username, email=email, password=password, age=age, phone_number=phone_number)
-            return HttpResponse(200)
+            return HttpResponseRedirect(reverse('diary:diary', args=[0]))
         return render(request, 'user/signup.html', {'form' : form})
 
     form = RegistrationForm()
