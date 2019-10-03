@@ -1,16 +1,14 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static '/desktop/left.css' %}">
-
 <div class="sidebar">
-    <h2 class="site_name">EL_D</h2>
-    <p class="username">{{ username }}</p>
+    <div class="sn_and_username">
+        <h2 class="site_name">EL_D</h2>
+        <p class="username">{{ username }}</p>
+    </div>
     {% if user_is_authenticated %}
-        <a class="link" href="{% url 'user:logout' %}">Log out</a>
+        <a class="link sidebar_left_link" href="{% url 'user:logout' %}">Log out</a>
         <a class="link" href="{% url 'main_page' %}">Main page</a>
         <a class="link" href="{% url 'diary:diary' week=0 %}">Diary</a>
     {% else %}
-        <a class="link" href="{% url 'user:signup' %}">Sign up</a>
+        <a class="link sidebar_left_link" href="{% url 'user:signup' %}">Sign up</a>
         <a class="link" href="{% url 'user:login' %}">Sign in</a>
         <a class="link" href="{% url 'main_page' %}">Main page</a>
     {% endif %}

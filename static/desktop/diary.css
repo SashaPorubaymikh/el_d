@@ -4,6 +4,7 @@
     font-family: sans-serif;
 }
 
+
 .main_content {
     overflow: auto;
 }
@@ -74,4 +75,33 @@
 .homeworks {
     display: flex;
     justify-content: space-between;
+}
+
+    @media screen and (orientation: portrait){
+        .main_section {
+            display: block;
+        }
+        .left {
+            width: 100%;
+            height: min-content;
+        }
+        .sidebar {
+            border-right: 0px;
+            display: flex;
+            align-items: center;
+        }
+        .main_content {
+            overflow: inherit;
+        }
+        .sidebar_left_link {
+            margin-left: auto;
+        }
+        .sidebar a {
+            height: min-content;
+            padding: 10px;
+        }
+        .sidebar a:hover {
+            padding: 8px;
+            border: 2px solid black;
+        }
 }
