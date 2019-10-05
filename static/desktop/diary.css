@@ -49,7 +49,7 @@
     font-size: 25px;
 }
 
-.table {
+.grid_table {
     display: grid;
     grid-auto-flow: column;
     grid-gap: 10px;
@@ -57,6 +57,10 @@
     width: 90%;
 }
 
+.lesson_number {
+    display: flex;
+    align-items: center;
+}
 .number {
     font-size: 30px;
 }
@@ -77,31 +81,46 @@
     justify-content: space-between;
 }
 
-    @media screen and (orientation: portrait){
-        .main_section {
-            display: block;
-        }
-        .left {
-            width: 100%;
-            height: min-content;
-        }
-        .sidebar {
-            border-right: 0px;
-            display: flex;
-            align-items: center;
-        }
-        .main_content {
-            overflow: inherit;
-        }
-        .sidebar_left_link {
-            margin-left: auto;
-        }
-        .sidebar a {
-            height: min-content;
-            padding: 10px;
-        }
-        .sidebar a:hover {
-            padding: 8px;
-            border: 2px solid black;
-        }
+.vertical_table {
+    display: none;
+    grid-template-columns: 30px 1fr;
+    grid-gap: 10px;
+}
+
+@media screen and (orientation: portrait){
+    .main_section {
+        display: block;
+    }
+    .main_content {
+        overflow: inherit;
+    }
+    .left {
+        width: 100%;
+        height: min-content;
+    }
+    .lesson_name {
+        font-size: 40px;
+    }
+    .lesson_classroom {
+        font-size: 40px;
+    }
+    .weekday_name {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+    .number {
+        font-size: 50px;
+    }
+    .material-icons {
+        font-size: 50px;
+    }
+    .grid_table {
+        display: none;
+    }
+    .vertical_table {
+        display: grid;
+    }
+    .weekday_name {
+        font-size: 50px;
+    }
 }

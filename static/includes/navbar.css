@@ -34,3 +34,9 @@
     margin-bottom: 15px;
     margin-right: 15px;
 }
+
+@media screen and (orientation: portrait) {
+    .page_name {
+        font-size: 60px;
+    }
+}

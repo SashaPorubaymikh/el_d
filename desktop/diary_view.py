@@ -27,16 +27,29 @@ def diary_page(request, week):
     context['next_week_number'] = week + 1       # To move between weeks we need the next
     context['previous_week_number'] = week -1    # and previous week numbers
 
-    context['days'] = []
+    context['days'] = list()
+    context['vertical_grid_days'] = list()
     for _ in range(6):
         date = monday + datetime.timedelta(days=_)
         context['days'].append({
+            'name' : views_logic.WEEKDAYS[_],
+            'date' : f'{date.day}.{date.month}.{str(date.year)}',
+            'lessons' : list()
+        })
+
+        context['vertical_grid_days'].append({
             'name' : views_logic.WEEKDAYS[_],
             'date' : f'{date.day}.{date.month}.{date.year}',
             'lessons' : list()
         })
 
-    context = views_logic.get_lessons_in_context(request, monday, monday, saturday, week, context) 
+    lessons = Lesson.objects.filter(user=request.user)
+    homeworks = HomeWork.objects.filter(date__range=[monday, saturday])
+
+    context = views_logic.get_grid_table_context(lessons, homeworks, monday, week, context)
+    context = views_logic.get_vertical_table_context(context, lessons, homeworks, monday, week)
+
+    pprint.pprint(context)
 
     return render(request, 'desktop/diary.html', context)
 

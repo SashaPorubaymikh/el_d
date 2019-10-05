@@ -33,3 +33,33 @@
     padding: 8px 0;
     transition: 100ms;
 }
+
+@media screen and (orientation: portrait) {
+    .sidebar_left_link {
+        margin-left: auto;
+    }
+    .sidebar a {
+        height: min-content;
+        padding: 10px;
+    }
+    .sidebar a:hover {
+        padding: 8px;
+        height: min-content;
+        width: max-content;
+        border: 2px solid black;
+    }
+    .sidebar {
+        border-right: 0px;
+        display: flex;
+        align-items: center;
+    }
+    .site_name {
+        font-size: 65px;
+    }
+    .link {
+        font-size: 45px;
+    }
+    .username {
+        font-size: 30px;
+    }
+}

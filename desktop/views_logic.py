@@ -19,14 +19,10 @@ def get_max_number_of_lessons(lessons):
     else:
         return 0
 
-def get_lessons_in_context(request, current_day, monday, saturday, week, context):
+def get_grid_table_context(lessons, homeworks, current_day, week, context):
     """ Returns class schedule and homework for this week """
-
-    lessons = Lesson.objects.filter(user=request.user)
     if len(lessons) == 0: # If class shedule for the user is empty the program exits the function
         return context
-
-    homeworks = HomeWork.objects.filter(date__range=[monday, saturday])  # getting all homewroks for the week
 
     context['count_of_lessons'] = get_max_number_of_lessons(lessons) # getting the most lessons per week
     context['number_of_days'] = lessons.order_by('-day').first().day # Getting all non empty days
@@ -66,3 +62,36 @@ def get_lessons_in_context(request, current_day, monday, saturday, week, context
     
 
     return context
+
+def get_vertical_table_context (context, lessons, homeworks, current_day, week):
+    for day in context["vertical_grid_days"]:
+        for lesson in lessons.filter(day=current_day.isoweekday()):
+            homework = homeworks.filter(lesson=lesson).first()
+            if homework != None:
+                day['lessons'].append(
+                    {
+                        'number': lesson.number,
+                        'name': lesson.name,
+                        'classroom': lesson.classroom,
+                        'homework' : textwrap.shorten(text=homework.homework, width=25, placeholder='...'),
+                        'homework_is_done' : homework.is_done,
+                        'details' : homework.id,
+                        'delete_id' : lesson.id,
+                        'edit_homework' : {'week' : week, 'id' : lesson.id},
+                    }
+                )
+            else:
+                day['lessons'].append(
+                    {
+                        'number': lesson.number,
+                        'name' : lesson.name,
+                        'classroom' : lesson.classroom,
+                        'delete_id' : lesson.id,
+                        'details' : 0,
+                        'edit_homework' : {'week' : week, 'id' : lesson.id},
+                    }
+                )
+        current_day += datetime.timedelta(days=1)
+
+    return context
+    
