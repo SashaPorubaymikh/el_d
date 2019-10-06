@@ -52,6 +52,7 @@
         border-right: 0px;
         display: flex;
         align-items: center;
+        margin: 0 15px;
     }
     .site_name {
         font-size: 65px;
@@ -62,4 +63,5 @@
     .username {
         font-size: 30px;
     }
+
 }

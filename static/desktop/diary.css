@@ -30,7 +30,8 @@
 
 .lesson_name {
     font-size: 18px;
-    align-self: center;
+    width: 100%;
+    text-align: center
 }
 
 .lesson_classroom {
@@ -76,9 +77,16 @@
     font-size: 30px;
 }
 
+.lesson_name_container {
+    display: flex;
+    width: 100%;
+}
+
 .homeworks {
     display: flex;
-    justify-content: space-between;
+}
+.check_mark {
+    margin-left: auto;
 }
 
 .vertical_table {
@@ -100,6 +108,7 @@
     }
     .lesson_name {
         font-size: 40px;
+        align-self: center;
     }
     .lesson_classroom {
         font-size: 40px;
@@ -107,6 +116,8 @@
     .weekday_name {
         font-size: 60px;
         margin-bottom: 20px;
+        margin-top: 20px;
+        border: 4px solid black;
     }
     .number {
         font-size: 50px;
@@ -119,8 +130,13 @@
     }
     .vertical_table {
         display: grid;
+        margin: 15px;
     }
     .weekday_name {
         font-size: 50px;
     }
+    .lesson_homework {
+        font-size: 40px;
+    }
+    
 }

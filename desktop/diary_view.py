@@ -49,7 +49,7 @@ def diary_page(request, week):
     context = views_logic.get_grid_table_context(lessons, homeworks, monday, week, context)
     context = views_logic.get_vertical_table_context(context, lessons, homeworks, monday, week)
 
-    pprint.pprint(context)
+    # pprint.pprint(context)
 
     return render(request, 'desktop/diary.html', context)
 
