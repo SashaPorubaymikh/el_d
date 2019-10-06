@@ -1,4 +1,5 @@
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {% load static %}
     
     <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
@@ -6,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'includes/error.css' %}">
     
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 	<title>EL_D</title>
 </head>
@@ -23,7 +23,7 @@
                 <p class="page_name">Signup</p>
             </div>
         </div>
-        <form action="/user/signup/" method="POST">
+        <form action="/user/signup/" method="POST" class="form">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" , name="signup" value="Sign up">

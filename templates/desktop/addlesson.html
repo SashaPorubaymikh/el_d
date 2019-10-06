@@ -1,13 +1,13 @@
 <head>
     <title>EL_D</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'desktop/add_lesson.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'includes/navbar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'includes/error.css' %}">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <section class="main_section">
@@ -20,7 +20,7 @@
             </a>
             <h1 class="page_name">Add lesson</h1>
         </div>
-		<form action="/diary/add_lesson/" method="POST">
+		<form action="/diary/add_lesson/" method="POST" class="form">
             {% csrf_token %}
             {% if addlesson_error %}
             <div class="error_container">

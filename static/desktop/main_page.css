@@ -17,3 +17,19 @@
     font-size: 20px;
     text-transform: uppercase;
 }
+
+
+@media screen and (orientation: portrait){
+    .main_section {
+        display: block;
+    }
+    
+    .main_sidebar {
+        width: 100%;
+        height: min-content;
+    }
+
+    .main_text {
+        font-size: 40px;
+    }
+}

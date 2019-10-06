@@ -25,3 +25,20 @@
     margin-bottom: 10px;
     width: 50%;
 }
+
+@media screen and (orientation: portrait) {
+    .main_section {
+        display: block;
+    }
+    .left {
+        width: 100%;
+        height: min-content;
+    }
+    .parameter {
+        font-size: 50px;
+    }
+    .argument {
+        font-size: 50px;
+        margin-left: 150px;
+    }
+}

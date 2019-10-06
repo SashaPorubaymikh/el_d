@@ -24,3 +24,13 @@ p {
     padding: 15px;
     margin-bottom: 8px;
 }
+
+@media screen and (orientation: portrait) {
+    .form {
+        font-size: 40px;
+    }
+    .form input{
+        margin-top: 10px;
+        font-size: 40px;
+    }
+}

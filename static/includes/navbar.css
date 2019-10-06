@@ -30,13 +30,20 @@
 
 .page_name {
     font-size: 40px;
-    font-weight: 800; 
-    margin-bottom: 15px;
+    font-weight: 800;
     margin-right: 15px;
 }
 
 @media screen and (orientation: portrait) {
     .page_name {
         font-size: 60px;
+    }
+    .navbar_link {
+        height: 50px;
+        font-size: 50px;
+        margin-top: 0px;
+    }
+    .material-icons {
+        font-size: 50px;
     }
 }
