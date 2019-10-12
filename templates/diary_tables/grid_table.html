@@ -15,7 +15,7 @@
     <div class="lesson">
         {% if lesson.none == False %}
         <div class="lesson_name_container">
-            <a href="{% url 'diary:delete_lesson' lesson.delete_id %}" title="Delete this lesson"
+            <a href="{% url 'diary:delete_lesson' id=lesson.delete_id week=week %}" title="Delete this lesson"
                 class="edit_lesson_link">
                 <i class="material-icons">
                     clear
@@ -26,14 +26,14 @@
         <p class="lesson_classroom">{{ lesson.classroom }}</p>
         <div class="homeworks">
             {% if lesson.details != 0 %}
-            <a href="{% url 'diary:lesson_details' id=lesson.details %}"
+            <a href="{% url 'diary:lesson_details' id=lesson.details week=week %}"
                 class="lesson_homework">{{ lesson.homework }}</a>
             {% if lesson.homework_is_done %}
             <i class="material-icons check_mark">
                 done
             </i>
             {% else %}
-            <a href="{% url 'diary:mark_as_done' id=lesson.details %}" class="edit_lesson_link check_mark"
+            <a href="{% url 'diary:mark_as_done' id=lesson.details week=week %}" class="edit_lesson_link check_mark"
                 title="Mark as done">
                 <i class="material-icons">
                     done_outline

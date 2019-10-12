@@ -10,10 +10,10 @@ from .views_logic import get_mon_sat
 
 
 @login_required
-def add_lesson(request):
+def add_lesson(request, week):
     '''Creates a new lesson'''
 
-    context = {}
+    context = {'week': week}
     if request.method == "POST":
         form = AddLesson(request.POST)
         if form.is_valid():
@@ -23,7 +23,7 @@ def add_lesson(request):
             number = form.cleaned_data['number']
             if Lesson.objects.filter(day=day, number=number, user=request.user).exists() == False:
                 lesson = Lesson.objects.create(name=name, classroom=classroom, day=day, number=number, user=request.user)
-                return HttpResponseRedirect(reverse('diary:diary', args=[0]))
+                return HttpResponseRedirect(reverse('diary:diary', args=[week]))
             context['addlesson_error'] = "A lesson with this number allready exists"
     
     form = AddLesson()
@@ -31,11 +31,11 @@ def add_lesson(request):
     return render(request, 'desktop/addlesson.html', context=context)
 
 @login_required
-def delete_lesson(request, id):
+def delete_lesson(request, id, week):
     '''Deletes lesson with the id'''
 
     Lesson.objects.filter(id=id, user=request.user).delete()
-    return HttpResponseRedirect(reverse('diary:diary', args=[0]))
+    return HttpResponseRedirect(reverse('diary:diary', args=[week]))
 
 @login_required
 def add_homework(request, week, id):
@@ -61,7 +61,7 @@ def add_homework(request, week, id):
                     hw.save()
                 else:
                     hw.delete()
-            return HttpResponseRedirect(reverse('diary:diary', args=[0]))
+            return HttpResponseRedirect(reverse('diary:diary', args=[week]))
 
     form = AddHomework()
     context = {
@@ -71,10 +71,10 @@ def add_homework(request, week, id):
     }
     return render(request, 'desktop/add_homework.html', context=context)
 
-def mark_as_done(request, id):
+def mark_as_done(request, id, week):
     '''Marks as done homewrok with passed to function homework's id'''
     
     homework = HomeWork.objects.filter(id=id).first()
     homework.is_done = True
     homework.save()
-    return HttpResponseRedirect(reverse('diary:diary', args=[0]))
+    return HttpResponseRedirect(reverse('diary:diary', args=[week]))

@@ -20,9 +20,9 @@ register_converter(NegativeIntConverter, "negativeInt")
 
 urlpatterns = [
   path('week/<negativeInt:week>/', diary_page, name='diary'),
-  path('add_lesson/', add_lesson, name='add_lesson'),
-  path('delete_lesson/<int:id>/', delete_lesson, name='delete_lesson'),
+  path('add_lesson/<negativeInt:week>/', add_lesson, name='add_lesson'),
+  path('delete_lesson/<int:id>/<negativeInt:week>/', delete_lesson, name='delete_lesson'),
   path('edit_homework/<negativeInt:week>/<int:id>/', add_homework, name='edit_homework'),
-  path('lesson_details/<int:id>/', lesson_details, name="lesson_details"),
-  path('mark_as_done/<int:id>/', mark_as_done, name="mark_as_done"),
+  path('lesson_details/<int:id>/<negativeInt:week>/', lesson_details, name="lesson_details"),
+  path('mark_as_done/<int:id>/<negativeInt:week>/', mark_as_done, name="mark_as_done"),
 ]

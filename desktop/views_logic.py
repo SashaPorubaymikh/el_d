@@ -36,6 +36,7 @@ def get_grid_table_context(lessons, homeworks, current_day, week, context):
                     day['lessons'].append({
                         'none' : False,
                         'name' : lesson.name,
+                        'number': lesson.number,
                         'classroom' : lesson.classroom,
                         'homework' : textwrap.shorten(text=homework.homework, width=25, placeholder='...'),
                         'homework_is_done' : homework.is_done,
@@ -46,6 +47,7 @@ def get_grid_table_context(lessons, homeworks, current_day, week, context):
                 else:
                     day['lessons'].append({
                         'none' : False,
+                        'number': lesson.number,
                         'name' : lesson.name,
                         'classroom' : lesson.classroom,
                         'delete_id' : lesson.id,
@@ -62,36 +64,3 @@ def get_grid_table_context(lessons, homeworks, current_day, week, context):
     
 
     return context
-
-def get_vertical_table_context (context, lessons, homeworks, current_day, week):
-    for day in context["vertical_grid_days"]:
-        for lesson in lessons.filter(day=current_day.isoweekday()):
-            homework = homeworks.filter(lesson=lesson).first()
-            if homework != None:
-                day['lessons'].append(
-                    {
-                        'number': lesson.number,
-                        'name': lesson.name,
-                        'classroom': lesson.classroom,
-                        'homework' : textwrap.shorten(text=homework.homework, width=25, placeholder='...'),
-                        'homework_is_done' : homework.is_done,
-                        'details' : homework.id,
-                        'delete_id' : lesson.id,
-                        'edit_homework' : {'week' : week, 'id' : lesson.id},
-                    }
-                )
-            else:
-                day['lessons'].append(
-                    {
-                        'number': lesson.number,
-                        'name' : lesson.name,
-                        'classroom' : lesson.classroom,
-                        'delete_id' : lesson.id,
-                        'details' : 0,
-                        'edit_homework' : {'week' : week, 'id' : lesson.id},
-                    }
-                )
-        current_day += datetime.timedelta(days=1)
-
-    return context
-    

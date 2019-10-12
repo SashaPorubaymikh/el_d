@@ -19,11 +19,14 @@ def diary_page(request, week):
     '''
 
     if request.user.is_authenticated:
-        context = {"user" : request.user}
-        context['username'] = request.user.username
-        context["user_is_authenticated"] = True
+        # context = {"user" : request.user}
+        context = {
+            'username' : request.user.username, 
+            'user_is_authenticated': True,
+        }
     
     monday, saturday = views_logic.get_mon_sat(datetime.datetime.today() + datetime.timedelta(weeks=week))
+    context['week'] = week
     context['next_week_number'] = week + 1       # To move between weeks we need the next
     context['previous_week_number'] = week -1    # and previous week numbers
 
@@ -37,17 +40,10 @@ def diary_page(request, week):
             'lessons' : list()
         })
 
-        context['vertical_grid_days'].append({
-            'name' : views_logic.WEEKDAYS[_],
-            'date' : f'{date.day}.{date.month}.{date.year}',
-            'lessons' : list()
-        })
-
     lessons = Lesson.objects.filter(user=request.user)
     homeworks = HomeWork.objects.filter(date__range=[monday, saturday])
 
     context = views_logic.get_grid_table_context(lessons, homeworks, monday, week, context)
-    context = views_logic.get_vertical_table_context(context, lessons, homeworks, monday, week)
 
     # pprint.pprint(context)
 

@@ -13,14 +13,14 @@
 <section class="main_section">
 	<div class="content">
 		<div class="navbar">
-            <a href="{% url 'diary:diary' week=0 %}" class="navbar_link" title="Back to diary">
+            <a href="{% url 'diary:diary' week=week %}" class="navbar_link" title="Back to diary">
                 <i class="material-icons">
                     keyboard_arrow_left
                 </i>
             </a>
             <h1 class="page_name">Add lesson</h1>
         </div>
-		<form action="/diary/add_lesson/" method="POST" class="form">
+		<form action="{% url 'diary:add_lesson' week=week %}" method="POST" class="form">
             {% csrf_token %}
             {% if addlesson_error %}
             <div class="error_container">

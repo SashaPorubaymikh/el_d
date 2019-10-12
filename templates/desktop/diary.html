@@ -32,7 +32,12 @@
           <i class="material-icons">
             arrow_back
           </i>
-        </a> 
+        </a>
+        <a href="{% url 'diary:diary' week=0 %}" class="navbar_link" title="Current week">
+          <i class="material-icons">
+            home
+          </i>
+        </a>
         <a href="{% url 'diary:diary' week=next_week_number %}" class="navbar_link" title="Next week">
           <i class="material-icons">
             arrow_forward
@@ -40,7 +45,7 @@
         </a>
       </div>
       <div class="right_navbar">
-        <a href="{% url 'diary:add_lesson' %}" class="navbar_link" title="Add new lesson">
+        <a href="{% url 'diary:add_lesson' week=week %}" class="navbar_link" title="Add new lesson">
           <i class="material-icons">
             add
           </i>
